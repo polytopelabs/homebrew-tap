@@ -1,37 +1,37 @@
 class PolytopeCli < Formula
   desc "The Polytope CLI"
   homepage "https://polytope.com"
-  version "0.1.33"
+  version "0.1.34"
 
   @@os = "#{OS.mac? ? 'macos' : 'linux'}"
   @@arch = "#{Hardware::CPU.intel? ? 'amd64' : 'arm64'}"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://polytope.com/releases/polytope-cli-0.1.33-macos-amd64.gz"
-      sha256 "872d0f6b850693cde0e1dc07bc2be5bffd69e550ee6668ab412194d73cbea2f6"
+      url "https://polytope.com/releases/polytope-cli-0.1.34-macos-amd64.gz"
+      sha256 "dcf2bd57cb49841aff402c4343ad822001a810b930ee1a2a2778d8cd863ac0e6"
     elsif Hardware::CPU.arm?
-      url "https://polytope.com/releases/polytope-cli-0.1.33-macos-arm64.gz"
-      sha256 "0403874bb8a3e4dd8028ce80187c027fb6e0e1295105d3d1895134ea0c4a4ebc"
+      url "https://polytope.com/releases/polytope-cli-0.1.34-macos-arm64.gz"
+      sha256 "602736e30558d06959381d07890a13cb1fe5e785ed91bd5ee8ddc2d60f2ac404"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://polytope.com/releases/polytope-cli-0.1.33-linux-amd64.gz"
-      sha256 "f0b12bb37c913081205ac7a5fdc785d3a7126cfa9d5787aad976663c45ebe1b0"
+      url "https://polytope.com/releases/polytope-cli-0.1.34-linux-amd64.gz"
+      sha256 "c8e9273673e32520243501a3b7f17f2b978cbbd9b1840cee68b0d5d1591e2f2b"
     elsif Hardware::CPU.arm?
-      url "https://polytope.com/releases/polytope-cli-0.1.33-linux-arm64.gz"
-      sha256 "1cb503de1c628a8832592972d4ea6cf19970efeef4e2ff7fea0b531ecaf5375f"
+      url "https://polytope.com/releases/polytope-cli-0.1.34-linux-arm64.gz"
+      sha256 "e3671a78b47aa329cbe702dce42a8173aaeaae304d78940bc8a9acf85ee8d3d7"
     end
   end
 
   def install
-    bin.install "polytope-cli-0.1.33-#{@@os}-#{@@arch}" => "polytope"
+    bin.install "polytope-cli-0.1.34-#{@@os}-#{@@arch}" => "polytope"
     bin.install_symlink "polytope" => "pt"
   end
 
   test do
-    assert_includes shell_output("#{bin}/polytope --version 2>&1"), "0.1.33-ef74d4f7d-#{@@os}-#{@@arch}"
+    assert_includes shell_output("#{bin}/polytope --version 2>&1"), "0.1.34-6d4ccae04-#{@@os}-#{@@arch}"
   end
 end
