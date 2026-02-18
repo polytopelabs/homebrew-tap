@@ -1,37 +1,37 @@
 class PolytopeCli < Formula
   desc "The Polytope CLI"
   homepage "https://polytope.com"
-  version "0.1.45"
+  version "0.1.46"
 
   @@os = "#{OS.mac? ? 'macos' : 'linux'}"
   @@arch = "#{Hardware::CPU.intel? ? 'amd64' : 'arm64'}"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://polytope.com/releases/polytope-cli-0.1.45-macos-amd64.gz"
+      url "https://polytope.com/releases/polytope-cli-0.1.46-macos-amd64.gz"
       sha256 ""
     elsif Hardware::CPU.arm?
-      url "https://polytope.com/releases/polytope-cli-0.1.45-macos-arm64.gz"
+      url "https://polytope.com/releases/polytope-cli-0.1.46-macos-arm64.gz"
       sha256 ""
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://polytope.com/releases/polytope-cli-0.1.45-linux-amd64.gz"
+      url "https://polytope.com/releases/polytope-cli-0.1.46-linux-amd64.gz"
       sha256 ""
     elsif Hardware::CPU.arm?
-      url "https://polytope.com/releases/polytope-cli-0.1.45-linux-arm64.gz"
+      url "https://polytope.com/releases/polytope-cli-0.1.46-linux-arm64.gz"
       sha256 ""
     end
   end
 
   def install
-    bin.install "polytope-cli-0.1.45-#{@@os}-#{@@arch}" => "polytope"
+    bin.install "polytope-cli-0.1.46-#{@@os}-#{@@arch}" => "polytope"
     bin.install_symlink "polytope" => "pt"
   end
 
   test do
-    assert_includes shell_output("#{bin}/polytope --version 2>&1"), "0.1.45-9a6979c2d-#{@@os}-#{@@arch}"
+    assert_includes shell_output("#{bin}/polytope --version 2>&1"), "0.1.46-85e68dac5-#{@@os}-#{@@arch}"
   end
 end
